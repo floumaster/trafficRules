@@ -1,0 +1,10 @@
+export const BLACK: string = '#000';
+export const WHITE: string = '#fff';
+export const WHITE_BLUE: string = '#00d4e3';
+export const BACKGROUND_BLUE = '#00187e';
+export const BACKGROUND_DARK_BLUE = '#0e0d2b';
+export const GRAY = '#ababab';
+export const GREEN = '#19b56c';
+export const RED = '#bd1206';
+export const ORANGE = '#d9a109';
+export const TRANSPARENT = 'transparent';
