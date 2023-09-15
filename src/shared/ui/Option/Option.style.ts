@@ -4,7 +4,7 @@ import { GRAY, GREEN, WHITE } from "shared/const";
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        height: 56,
+        minHeight: 56,
         borderWidth: 1.5,
         borderColor: GRAY,
         borderStyle: 'solid',
@@ -13,12 +13,14 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         paddingLeft: 30,
-        paddingRight: 10
+        paddingRight: 10,
+        paddingVertical: 10
     },
     text: {
         color: GRAY,
         fontSize: 16,
-        fontWeight: '500'
+        fontWeight: '500',
+        width: '85%'
     },
     containerSelected: {
         borderColor: GREEN

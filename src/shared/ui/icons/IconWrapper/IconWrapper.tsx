@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import { TouchableOpacity } from "react-native";
 import styles from "./IconWrapper.style";
 import { IconWrapperProps } from "./types";
 
-const IconWrapper = ({children, style, onPress, disabled} : IconWrapperProps) : JSX.Element => {
+const IconWrapper: FC<IconWrapperProps> = ({style, onPress, disabled, children}) => {
     return (
         <TouchableOpacity
             style={[styles.container, style]}

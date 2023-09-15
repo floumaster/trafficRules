@@ -1,7 +1,8 @@
+import React, { ReactNode } from "react";
 import { ViewStyle } from "react-native"
 
 export interface IconWrapperProps {
-    children: JSX.Element;
+    children: ReactNode;
     style?: ViewStyle;
     onPress?: () => void;
     disabled?: boolean;

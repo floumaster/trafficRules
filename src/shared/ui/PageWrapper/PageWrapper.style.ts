@@ -3,10 +3,10 @@ import { BACKGROUND_DARK_BLUE } from "shared/const";
 
 const styles = StyleSheet.create({
     container: {
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
+        width: '100%',
+        height: '100%',
         backgroundColor: BACKGROUND_DARK_BLUE,
-        padding: 10
+        padding: 20
     }
 });
 

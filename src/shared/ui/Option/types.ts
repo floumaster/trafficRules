@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { ViewStyle, TextStyle } from "react-native";
 
 export interface OptionProps {
@@ -10,6 +11,6 @@ export interface OptionProps {
     additionalTextStyleSelected?: TextStyle | null;
     additionalIconWrapperStyle?: ViewStyle | null;
     additionalIconWrapperStyleSelected?: ViewStyle | null;
-    Icon?: JSX.Element | null;
-    id?: string | null;
+    Icon?: ReactNode | null;
+    isDisabled: boolean;
 };

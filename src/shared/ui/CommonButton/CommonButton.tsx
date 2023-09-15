@@ -1,11 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import { TouchableOpacity, View, Text } from "react-native";
 import { styles } from "./CommonButton.style";
 import { CommonButtonProps } from "./types";
 import { SUBMIT_BUTTON_TEXT } from "shared/const";
 
 
-const CommonButton = ({
+const CommonButton: FC<CommonButtonProps> = ({
     additionalContainerStyle,
     onPress,
     text = SUBMIT_BUTTON_TEXT,
@@ -13,8 +13,9 @@ const CommonButton = ({
     leftIcon,
     additionalLeftIconContainerStyle,
     rightIcon,
-    additionalRightIconContainerStyle
-}: CommonButtonProps): JSX.Element => {
+    additionalRightIconContainerStyle,
+    isDisabled
+}) => {
 
     return (
         <TouchableOpacity style={
@@ -23,6 +24,7 @@ const CommonButton = ({
                 : styles.container
             }
             onPress={onPress}
+            disabled={isDisabled}
         >
             {leftIcon && <View style={
                     additionalLeftIconContainerStyle ?

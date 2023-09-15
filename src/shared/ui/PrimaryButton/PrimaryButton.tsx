@@ -1,9 +1,9 @@
-import React from "react";
+import React, { FC } from "react";
 import CommonButton from "../CommonButton";
 import { PrimaryButtonProps } from "./types";
 import styles from "./PrimaryButton.style";
 
-const PrimaryButton = ({
+const PrimaryButton: FC<PrimaryButtonProps> = ({
     additionalContainerStyle,
     onPress,
     text,
@@ -11,8 +11,9 @@ const PrimaryButton = ({
     leftIcon,
     additionalLeftIconContainerStyle,
     rightIcon,
-    additionalRightIconContainerStyle
-} : PrimaryButtonProps) : JSX.Element => {
+    additionalRightIconContainerStyle,
+    isDisabled
+}) => {
     return (
         <CommonButton 
             additionalContainerStyle={{...styles.container, ...additionalContainerStyle}}
@@ -23,6 +24,7 @@ const PrimaryButton = ({
             additionalLeftIconContainerStyle={additionalLeftIconContainerStyle}
             rightIcon={rightIcon}
             additionalRightIconContainerStyle={additionalRightIconContainerStyle}
+            isDisabled={isDisabled}
         />
     )
 };

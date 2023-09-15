@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { FC } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import styles from "./Option.style";
 import { DEFAULT_OPTION_TEXT } from "shared/const";
 import { OptionProps } from "./types";
 
-const Option = ({
+const Option: FC<OptionProps> = ({
     isSelected = true,
     text = DEFAULT_OPTION_TEXT,
     onPress,
@@ -15,8 +15,8 @@ const Option = ({
     additionalIconWrapperStyle,
     additionalIconWrapperStyleSelected,
     Icon,
-    id,
-} : OptionProps) : JSX.Element => {
+    isDisabled
+}) => {
 
     return (
         <TouchableOpacity
@@ -29,7 +29,7 @@ const Option = ({
                 ]
                 : [styles.container, additionalContainerStyle]}
             onPress={onPress}
-            key={id}
+            disabled={isDisabled}
         >
             <Text style={isSelected
                 ? [

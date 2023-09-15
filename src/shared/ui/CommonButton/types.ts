@@ -1,12 +1,14 @@
+import { ReactNode } from "react";
 import { ViewStyle, TextStyle } from "react-native"
 
 export interface CommonButtonProps {
-    additionalContainerStyle: ViewStyle | ViewStyle[];
+    additionalContainerStyle?: ViewStyle | ViewStyle[];
     onPress?: () => void;
     text?: string;
     additionalTextStyle?: TextStyle;
-    leftIcon?: JSX.Element;
+    leftIcon?: ReactNode;
     additionalLeftIconContainerStyle?: ViewStyle;
-    rightIcon?: JSX.Element;
+    rightIcon?: ReactNode;
     additionalRightIconContainerStyle?: ViewStyle;
+    isDisabled?: boolean;
 }

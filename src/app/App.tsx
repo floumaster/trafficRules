@@ -1,12 +1,12 @@
 import React from 'react';
-import Exam from 'pages/Exam';
+import ExamScreen from 'screens/Exam/ExamScreen';
 
 
 
 function App(): JSX.Element {
 
   return (
-    <Exam />
+    <ExamScreen />
   );
 }
 
