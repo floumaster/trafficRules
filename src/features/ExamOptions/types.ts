@@ -1,3 +1,5 @@
+import { UserProgressType } from "widgets/Exam/types";
+
 export interface AnswerType {
     id: string;
     title: string;
@@ -5,6 +7,8 @@ export interface AnswerType {
 
 export interface ExamOptionsProps {
     answers: AnswerType[];
-    onPressAfterSubmit: () => void;
+    answerQuestion: (answerId: string) => void;
     answerId: string;
+    userProgress: UserProgressType;
+    currentQuestionId: string;
 }

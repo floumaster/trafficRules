@@ -1,4 +1,4 @@
-import React, { useState, FC } from "react";
+import React, { useState, FC, useEffect } from "react";
 import { View } from "react-native";
 import ExamOption from "entities/ExamOption";
 import styles from "./ExamOptions.style";
@@ -6,24 +6,31 @@ import PrimaryButton from "shared/ui/PrimaryButton";
 import { ExamOptionsProps } from "./types";
 import { GO_NEXT_BUTTON_TEXT, SUBMIT_BUTTON_TEXT } from "shared/const";
 
-const ExamOptions: FC<ExamOptionsProps> = ({ answers, onPressAfterSubmit, answerId }) => {
+const ExamOptions: FC<ExamOptionsProps> = ({ answers, answerQuestion, answerId, userProgress, currentQuestionId }) => {
 
     const [selectedAnswerId, setSelectedAnswerId] = useState<string>('')
-    const [rightAnswerId, setRightAnswerId] = useState<string>('')
+    const [rightAnswerId, setRightAnswerId] = useState<string>(userProgress.answerId ? answerId : '')
+
+    useEffect(() => {
+        if(userProgress.answerId){
+            setRightAnswerId(answerId)
+            setSelectedAnswerId(userProgress.answerId)
+        }
+    }, [userProgress, currentQuestionId])
 
     const handleSelectAnswer = (id: string) => {
         setSelectedAnswerId(id)
     }
 
-    const clearPreviousResults = () => {
+    const clearResults = () => {
         setSelectedAnswerId('')
         setRightAnswerId('')
     }
 
     const handleSubmit = () => {
         if(rightAnswerId){
-            onPressAfterSubmit()
-            clearPreviousResults()
+            answerQuestion(selectedAnswerId);
+            clearResults();
         }
         else if(selectedAnswerId)
             setRightAnswerId(answerId)
@@ -45,7 +52,7 @@ const ExamOptions: FC<ExamOptionsProps> = ({ answers, onPressAfterSubmit, answer
                                 key={answer.id}
                                 isDisabled={isOptionListDisabled}
                                 isRightOption={answer.id === rightAnswerId}
-                                isWrongOption={!!rightAnswerId && answer.id !== rightAnswerId && answer.id === selectedAnswerId}
+                                isWrongOption={answer.id !== rightAnswerId && selectedAnswerId === answer.id}
                             />
                         )
                     })

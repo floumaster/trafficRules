@@ -4,7 +4,7 @@ import { GRAY, GREEN, WHITE } from "shared/const";
 const styles = StyleSheet.create({
     container: {
         width: '100%',
-        minHeight: 56,
+        minHeight: 50,
         borderWidth: 1.5,
         borderColor: GRAY,
         borderStyle: 'solid',
